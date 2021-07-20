@@ -1,7 +1,7 @@
 <template>
   <v-container class="home" fluid>
   <v-content>
-    <v-content
+    <!-- <v-content
     v-for="(video) in mainVideos"
       :key="video"
     >
@@ -10,11 +10,11 @@
         v-html="video.src"
         class="mainvideo"
       >
-      </v-sheet>
-    <!-- <video autoplay loop class="mainvideo" >
+      </v-sheet> -->
+    <video autoplay loop class="mainvideo" >
       <source src="../assets/venom2.mp4" type="video/mp4"/>
-    </video> -->
-    </v-content>
+    </video>
+    <!-- </v-content> -->
     <!-- <v-carousel v-model="model">
     <v-carousel-item
       v-for="(video, id) in mainVideos"

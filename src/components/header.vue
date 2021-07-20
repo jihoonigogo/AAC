@@ -521,6 +521,19 @@ export default {
   /* background-color: #000C1D; */
   background-color: rgba(0, 0, 0, 1);
 }
+.header2 {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 0%;
+  position: fixed;
+  /* display:ab; */
+  top: 0;
+  left: 0;
+  z-index: 103;
+  /* background-color: #000C1D; */
+  background-color: rgba(0, 0, 0, 1);
+}
 a {
     text-decoration:none;
  }
