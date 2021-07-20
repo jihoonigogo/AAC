@@ -14,29 +14,31 @@
                     <img  class="logo" src="../assets/001.png">
                 </a>
             </div>
-            <div class="col-md-2">
+            <v-col cols="9" class="cool">
+            <div class="">
                 <a href="/review" class="menu white--text">
                     {{$t('nav.review')}}
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="">
                 <a href="/freeboard" class="menu white--text">
                     {{$t('nav.board')}}
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="">
                 <a href="/news" class="menu white--text">
                     {{$t('nav.news')}}
                 </a>
             </div>
-            <div class="col-md-2">
+            <div class="">
                 <a href="/chat" class="menu white--text">
                     {{$t('nav.chat')}}
                 </a>
             </div>
+            </v-col>
             <!-- 언어변경 -->
-            <v-col
-            class="col-md-2">
+            <div
+            class="col-md-1">
                 <v-select v-model="$i18n.locale"
                 dark
                 dense
@@ -48,10 +50,10 @@
                     {{ lang }}
                 </option>
                 </v-select>
-            </v-col>
-            <v-col cols="1" v-if="authEmail">
+            </div>
+            <div class="col-md-1" v-if="authEmail">
                 <a href="http://localhost:3000/auth/logout" class="menu white--text"><v-btn dark>{{$t('nav.logout')}}</v-btn></a>
-            </v-col>
+            </div>
             <!-- 로그인 다이얼로그 -->
             <v-col v-else class="col-md-1">
                 <v-btn dark @click="mdUp">{{$t('nav.login')}}</v-btn>
@@ -508,12 +510,14 @@ export default {
   display: flex;
   margin: 0px;
 }
-.header {
+.header{
   margin: 0px;
   padding: 0px;
   width: 100%;
+  /* width:calc((100% - 80px) /5) ; */
   height: 0%;
   position: fixed;
+  /* display: flex; */
   /* display:ab; */
   top: 0;
   left: 0;
@@ -521,19 +525,10 @@ export default {
   /* background-color: #000C1D; */
   background-color: rgba(0, 0, 0, 1);
 }
-.header2 {
-  margin: 0px;
-  padding: 0px;
-  width: 100%;
-  height: 0%;
-  position: fixed;
-  /* display:ab; */
-  top: 0;
-  left: 0;
-  z-index: 103;
-  /* background-color: #000C1D; */
-  background-color: rgba(0, 0, 0, 1);
-}
+/* .header div{
+  width:calc((100%) /5) ;
+} */
+
 a {
     text-decoration:none;
  }
@@ -564,9 +559,26 @@ a {
     width:70px;
 }
 .logo {
-    width:150px;
-    max-width: 90vh;
-    margin-left: -45px;
-    margin-top: -40px;
+    /* width:150px; */
+    /* max-width: 90vh; */
+    /* height: 100%; */
+    /* margin-left: -45px; */
+    margin-left: -2.5vw;
+    /* margin-top: -40px; */
+    margin-top: -5vh;
+    width: 9.5vw;
+    /* width: 130%; */
+}
+/* .header div{
+  width: calc((100%-80px)/5);
+} */
+.cool div{
+  width: calc((100%)/4);
+  display: inline-flex;
+  /* text-align: center; */
+  /* justify-content: center; */
+  justify-content: space-around;
+  /* justify-content: space-between; */
+  /* margin: -3px; */
 }
 </style>
