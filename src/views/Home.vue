@@ -1,73 +1,41 @@
 <template>
   <v-container class="home" fluid>
-  <v-content>
-    <!-- <v-content
-    v-for="(video) in mainVideos"
-      :key="video"
-    >
-    <v-sheet
-        height="100%"
-        v-html="video.src"
-        class="mainvideo"
-      >
-      </v-sheet> -->
-    <video autoplay loop class="mainvideo" >
-      <source src="../assets/venom2.mp4" type="video/mp4"/>
+    <video autoplay muted loop class="mainvideo" >
+      <source src="../assets/blackwidow.mp4" type="video/mp4"/>
     </video>
-    <!-- </v-content> -->
-    <!-- <v-carousel v-model="model">
-    <v-carousel-item
-      v-for="(video, id) in mainVideos"
-      :key="video"
-    >
-      <v-sheet
-        height="100%"
-
-        v-html="video.src"
-      >
-        <v-row
-          class="fill-height"
-          align="center"
-          justify="center"
-        >
-        </v-row>
-      </v-sheet>
-    </v-carousel-item>
-  </v-carousel> -->
       <v-content>
       <v-row>
         <v-col cols="12">
           <v-sheet
-          class="netRec ma-7"
-          elevation="8"
-          max-width="100vw"
+          class="netRec ma-3"
+          elevation="300"
+          width="90vw"
           dark
           >
-          <h1 class="font-weight-black" style="font-family:none; margin-left:5px">{{$t('home.boxOffice')}}</h1>
+          <h1 class="font-weight-black" style="font-family:none;"></h1>
           <v-slide-group
-            class="pa-5"
+            class=""
             show-arrows
           >
             <v-slide-item
               class="card-item"
-              v-for="(slide,i) in movieRank"
+              v-for="(slide,i) in slides"
               :key="slide"
               v-slot="{ active, toggle }"
             >
               <v-card
               :color="active ? 'red' : 'black'"
-              class="ma-7 cards"
-              max-height="300px"
-              width="280px"
+              class="ma-5 cards"
+              width="30vh"
               @click="toggle"
               to="/"
               hover
               >
-              <h1 style="right:-16%; color:transparent;">{{i+1}}</h1>
+              <h1 style="right:-10%; color:transparent;">{{i+1}}</h1>
               <v-img
                 class="white--text align-end"
-                width="150px"
-                height="240px"
+                width="22vh"
+                height="40vh"
                 :src="slide.img"
               >
                 <!-- <v-card-title class="cards-title">{{slide.title}}</v-card-title> -->
@@ -79,8 +47,10 @@
         </v-col>
       </v-row>
     </v-content>
-    <v-row justify="center" class="mb-0 pa-8">
-      <v-col cols="4">
+
+    <!-- 통계 -->
+    <v-row justify="" class="mb-0 pa-8 sta">
+      <v-col sm="12" md="4">
         <v-card dark style="background:#202936" height="70vh">
           <v-list style="background:#202936">
             <v-subheader>POPULAR STREAMING MOVIES</v-subheader>
@@ -104,14 +74,14 @@
           </v-list>
         </v-card>
       </v-col>
-      <v-col cols="4">
+      <v-col  sm="12" md="4">
         <v-card dark style="background:#202936">
           <v-card-title>{{$t('home.marketShare')}}</v-card-title>
           <v-card-subtitle>{{$t('home.unit')}}</v-card-subtitle>
           <doughnut-chart :chart-data="doughnutCollection" :options="optionss"></doughnut-chart>
         </v-card>
       </v-col>
-      <v-col cols="4">
+      <v-col  xs="12" sm="12" md="4">
         <v-card dark style="background:#202936">
           <v-card-title>{{$t('home.usageFee')}}</v-card-title>
           <v-card-subtitle>{{$t('home.usageFeeUnit')}}</v-card-subtitle>
@@ -119,7 +89,6 @@
         </v-card>
       </v-col>
     </v-row>
-  </v-content>
   </v-container>
 
 
@@ -137,20 +106,19 @@ export default {
   },
   mounted () {
     this.list()
+    let lang = localStorage.getItem('language')
+              if (lang == "한국어"){
+                  this.$i18n.locale="한국어"
+              } else if (lang == "English"){
+                  this.$i18n.locale="English"
+              } else {
+                  this.$i18n.locale="日本語"
+              }
+
   },
   data () {
     return {
       movieRank: [],
-      mainVideos:[
-        // {id:1,src: '<iframe width="100%" height="1200vh" src="https://www.youtube.com/embed/V6aWnlhH6ug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'},
-        {id:1,src: '<iframe width="100%" height="861vh" src="https://www.youtube.com/embed/V6aWnlhH6ug?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'},
-
-        // {id:2,src: '<vides width="560" height="315" type="video/mp4" src="../assets/blackwidow.mp4" allowfullscreen></video>'},
-        // {id:3,src: '<video type="video/mp4" src="../assets/blackwidow.mp4" frameborder="0" allow="accelerometer; autoplay; muted; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></video>'},
-        // {id:4,src: '<video  src="../assets/blackwidow.mp4"></video>'},
-
-
-     ],
       langs: ['ko', 'en'],
       items: [
         { text: 'Real-Time', icon: 'mdi-numeric-1-box' },
@@ -169,6 +137,15 @@ export default {
         }
       ],
       },
+      slides: [
+          {title:'베놈2', to:"" ,syno:'blabla... ',img:'https://cdn.eyesmag.com/content/uploads/posts/2021/02/17/disney-cruella-new-poster-emma-stone-1-d28a46b1-8f9f-49ab-b405-7efaf62d55c2.jpg'},
+          {title:'크루엘라', to:"" ,syno:'blabla',img:'https://cdn.ilyoseoul.co.kr/news/photo/202004/384931_301204_3429.jpg'},
+          {title:'귀멸의칼날', to:"" ,syno:'blabla',img:'https://cdn.eyesmag.com/content/uploads/posts/2021/02/17/disney-cruella-new-poster-emma-stone-1-d28a46b1-8f9f-49ab-b405-7efaf62d55c2.jpg'},
+          {title:'컨져링3', to:"" ,syno:'blabla',img:'https://www.sports-g.com/wp-content/uploads/2018/12/%EC%98%81%ED%99%94-%EC%8A%A4%ED%8C%8C%EC%9D%B4%EB%8D%94%EB%A7%A83-%ED%8F%AC%EC%8A%A4%ED%84%B0.jpg'},
+          {title:'콰이어트플레이스2', to:"" ,syno:'blabla',img:'https://img.hankyung.com/photo/202106/01.26629700.1.jpg'},
+          {title:'오늘점심', to:"" ,syno:'돈까스',img:'https://t1.daumcdn.net/thumb/R720x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/6idc/image/XIuGoXWxOpHLJpctmWaRW7g2MKc.jpeg'},
+          {title:'베놈2', to:"" ,syno:'blabla... ',img:'https://cdn.eyesmag.com/content/uploads/posts/2021/02/17/disney-cruella-new-poster-emma-stone-1-d28a46b1-8f9f-49ab-b405-7efaf62d55c2.jpg'},
+         ],
       optionss:{
         plugins: {
                 doughnutlabel: {
@@ -224,7 +201,7 @@ export default {
   methods:{
     list () {
       console.log("start")
-        axios.get('http://localhost:3000/api/movierank/list/rank')
+        axios.get('/api/movierank/list/rank')
           .then(({ data }) => {
             console.log(data)
             this.movieRank = data.ds
@@ -239,15 +216,20 @@ export default {
 </script>
 
 <style scoped>
+
+@media screen and (min-width:960px) {
+
+
 .mainvideo{
   position: relative;
-  /* max-height: 90vh; */
-  /* width: 100%; */
+  max-height: 90vh;
+  width: 100%;
   object-fit: fill;
   overflow: hidden;
 }
 .container {
   padding: 0;
+  background: #000C1D;
 }
 .netRec{
   background-color: #101A29;
@@ -297,10 +279,82 @@ export default {
   object-fit: fill;
   overflow: hidden;
 }
-.container{
-  background: #000C1D;
-}
+
 .card1{
   height: 550px;
 }
+}
+
+/* 분기점 */
+@media screen and (max-width:768px) {
+
+
+.mainvideo{
+  position: relative;
+  max-height: 90vh;
+  width: 100%;
+  object-fit: fill;
+  overflow: hidden;
+  /* min-height: 40vh; */
+}
+.container {
+  padding: 0;
+  background: #000C1D;
+}
+.netRec{
+  /* background-color: #101A29; */
+  background-color: gray;
+  /* border: solid 1px white; */
+  /* margin-bottom: 10px; */
+  padding: 0px;
+  margin: 0px;
+  /* top: -10%; */
+}
+.card-item{
+    /* margin: 30px; */
+    transform-style: preserve-3d;
+    perspective: 700px;
+    animation: spin 3s infinite linear;
+}
+.cards{
+    display: flex;
+    /* margin: 30px; */
+    transform-style: preserve-3d;
+    perspective: 700px;
+    animation: spin 5s infinite linear;
+    /* background-color: black; */
+    margin: 0px;
+    padding: 0px;
+}
+.cards h1{
+    font-size: 8em;
+    font-family: 'Babas Neue' !important;
+    width: 140px;
+    height: 200px;
+    margin:0px;
+    transform: translateZ(1px);
+    position: relative;
+    -webkit-text-stroke: grey 3px;
+}
+@keyframes spin {
+   from{
+    transform: rotateY(-20deg);
+  }to{
+    transform: rotateY(20deg);
+  }
+}
+
+.mainvideo{
+  position: relative;
+  max-height: 90vh;
+  width: 100%;
+  object-fit: fill;
+  overflow: hidden;
+}
+
+.card1{
+  height: 550px;
+}
+}
+
 </style>

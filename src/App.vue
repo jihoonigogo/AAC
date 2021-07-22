@@ -1,8 +1,8 @@
 <template>
   <v-app>
-   <div id="header" >
+   <!-- <div id="header" >
       <main-header/>
-    </div>
+    </div> -->
     <!-- <div id="header" v-if="$route.name==='Home'">
       <main-header/>
     </div> -->
