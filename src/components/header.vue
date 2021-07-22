@@ -518,12 +518,12 @@ export default {
   height: 0%;
   position: fixed;
   /* display: flex; */
-  /* display:ab; */
   top: 0;
   left: 0;
   z-index: 103;
   /* background-color: #000C1D; */
-  background-color: rgba(0, 0, 0, 1);
+  /* background-color: rgba(0, 0, 0, 1); */
+  /* background-color: red; */
 }
 /* .header div{
   width:calc((100%) /5) ;

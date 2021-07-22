@@ -14,6 +14,9 @@
     <!-- <v-main class="main2" v-if="$route.name===!'Home'">
       <router-view class="pa-0 ma-0"/>
     </v-main> -->
+    <!-- <v-main :class=['main',$route.name]>
+      <router-view class="pa-0 ma-0"/>
+    </v-main> -->
 
     <div id="footer">
       <main-footer/>
@@ -73,6 +76,10 @@ export default {
 }
 .main{
   background-color: #000C1D;
+  z-index: 100;
+}
+.main.Home {
+   background-color: #000C1D;
   z-index: 100;
 }
 </style>

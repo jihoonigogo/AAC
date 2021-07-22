@@ -25,7 +25,7 @@
             height="38vh"
             width="40vw"
             src="../assets/chatimg1.jpg"
-            style="border-top-left-radius:20px; border-top-right-radius:20px;"
+            style="border-top-left-radius:5%; border-top-right-radius:5%;"
           >
           </v-img>
             <div class="d-flex">
@@ -46,7 +46,7 @@
             height="38vh"
             width="40vw"
             src="../assets/chatimg2.jpg"
-            style="border-top-left-radius:20px; border-top-right-radius:20px;"
+            style="border-top-left-radius:5%; border-top-right-radius:5%;"
           >
           </v-img>
             <div class="d-flex">
@@ -67,7 +67,7 @@
             height="38vh"
             width="40vw"
             src="../assets/chatimg3.jpg"
-            style="border-top-left-radius:20px; border-top-right-radius:20px;"
+            style="border-top-left-radius:5%; border-top-right-radius:5%;"
           >
           </v-img>
             <div class="d-flex">
@@ -88,7 +88,7 @@
             height="38vh"
             width="40vw"
             src="https://t1.daumcdn.net/cfile/tistory/9917503E5AB207E12E"
-            style="border-top-left-radius:20px; border-top-right-radius:20px;"
+            style="border-top-left-radius:5%; border-top-right-radius:5%;"
           >
           </v-img>
             <div class="d-flex">
@@ -105,16 +105,16 @@
 
 
     <!-- 채팅방 다이얼로그 -->
-      <v-dialog v-model="dialog" persistent width="500">
-      <v-card dark>
+      <v-dialog v-model="dialog" persistent width="40vw">
+      <v-card dark >
         <v-card-title class="text-h5 lighten-2">
           {{flagName}}
         </v-card-title>
-
+        <v-divider class="mb-5"/>
         <v-card-text>
           <!-- <label>내용</label> -->
           <md-field>
-          <md-textarea class="ta" v-model="textarea" disabled v-auto-scroll-bottom rows="10" row-height="50"></md-textarea>
+          <md-textarea class="ta" v-model="textarea" disabled v-auto-scroll-bottom rows="25vh"  row-height="80"></md-textarea>
           </md-field>
           <!-- <label>입력</label> -->
           <v-text-field
@@ -308,7 +308,7 @@ export default {
   margin-right: 130px;
   margin-top: 10px;
   max-height: 45vh;
-  width: 35vw;
+  width: 37vw;
   /* right: -50%; */
   padding: 0px;
   border-radius: 2.2vh;
@@ -338,6 +338,8 @@ export default {
 .ta {
   width: 100%;
   color: whitesmoke;
+  /* color: red; */
+
 }
 .container{
   background-color:#000C1D;
