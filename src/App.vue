@@ -1,15 +1,15 @@
 <template>
   <v-app>
-   <!-- <div id="header" >
+   <div id="header" >
       <main-header/>
-    </div> -->
+    </div>
     <!-- <div id="header" v-if="$route.name==='Home'">
       <main-header/>
     </div> -->
 
     <v-main class="main">
-      <router-view class="pa-0 ma-0 mainView" v-if="$route.name==='Home'"/>
-      <router-view class="pa-0 mt-3.5% mainView2" v-if="$route.name!=='Home'"/>
+      <router-view class="pa-0  mainView" v-if="$route.name==='Home'"/>
+      <router-view class="pa-0  mainView2" v-if="$route.name!=='Home'"/>
     </v-main>
     <!-- <v-main class="main2" v-if="$route.name===!'Home'">
       <router-view class="pa-0 ma-0"/>
@@ -64,6 +64,9 @@ export default {
     font-family: 'f1';
     letter-spacing: 1.5px;
 }
+/* 웹 */
+@media screen and (min-width:769px) {
+
 .mainView{
   /* margin-top: 3.8%; */
   background-color: #000C1D;
@@ -81,5 +84,36 @@ export default {
 .main.Home {
    background-color: #000C1D;
   z-index: 100;
+}
+}
+
+/* 모바일 */
+@media screen and (max-width:768px) {
+/* .mainView,.mainView2{
+  margin-top: 35%;
+} */
+.mainView{
+  /* margin-top: 15%; */
+  background-color: #000C1D;
+  z-index: 100;
+}
+.mainView2{
+  margin-top: 10%;
+  background-color: #000C1D;
+  z-index: 100;
+}
+.main{
+  background-color: #000C1D;
+  z-index: 100;
+}
+.main.Home {
+   background-color: #000C1D;
+  z-index: 100;
+}
+/* .bm-burger-button{ */
+/* #bug{
+  margin-right: -3%;
+  margin-top: 2%;
+} */
 }
 </style>

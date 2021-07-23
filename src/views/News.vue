@@ -4,7 +4,6 @@
       <v-flex xs12>
       <v-sheet
         class="mx-auto"
-        elevation="10"
         max-width="100%"
         style="background-color:#101a29;"
         >
@@ -12,28 +11,21 @@
             dark
             v-model="model"
             class="pa-4"
-            show-arrows
+            show-arrows="desktop"
           >
             <v-slide-item
-
-              v-for="slide in cine"
+              v-for="slide in slides"
               :key="slide"
             >
             <v-card
-
-              class="ma-4"
-              height="260"
-              width="310"
-              @click="readCine(slide.link)"
+              class="ma-4 newscard"
               style="background-color:#1E2734; border-radius:0.5vw"
             >
                 <v-img
-                  width="310px"
-                  height="160px"
+                  class="newsimg"
                   :src="slide.img"
                 >
                 </v-img>
-
                 <h4 style="text-align:center;  color:#87CEEB;" class="pa-2 mt-3">{{slide.title}}</h4>
             </v-card>
           </v-slide-item>
@@ -44,7 +36,6 @@
           <v-data-table
             style="background-color:#101a29; margin-top:2.5%;"
             dark
-
             hide-default-footer
             :headers="headers"
             :items="articles"
@@ -76,6 +67,17 @@ export default {
         { text: '제목', value: 'title', sortable: true },
         { text: '언론사', value: 'media', sortable: false },
       ],
+      slides: [
+          {title:'qqqqqqqqqqqqqqqqqqqqqqqqqqqqq', to:"" ,syno:'blabla... ',img:'https://img.hankyung.com/photo/202106/01.26629700.1.jpg'},
+          {title:'qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq', to:"" ,syno:'blabla',img:'https://img.hankyung.com/photo/202106/01.26629700.1.jpg'},
+          {title:'qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq', to:"" ,syno:'blabla',img:'https://img.hankyung.com/photo/202106/01.26629700.1.jpg'},
+          {title:'컨져링3', to:"" ,syno:'blabla',img:'https://img.hankyung.com/photo/202106/01.26629700.1.jpg'},
+          {title:'콰이어트플레이스2', to:"" ,syno:'blabla',img:'https://img.hankyung.com/photo/202106/01.26629700.1.jpg'},
+          {title:'오늘점심', to:"" ,syno:'돈까스',img:'https://img.hankyung.com/photo/202106/01.26629700.1.jpg'},
+          {title:'베놈2', to:"" ,syno:'blabla... ',img:'https://img.hankyung.com/photo/202106/01.26629700.1.jpg'},
+          {title:'베놈2', to:"" ,syno:'blabla... ',img:'https://img.hankyung.com/photo/202106/01.26629700.1.jpg'},
+
+         ],
     }
   },
   mounted () {
@@ -118,3 +120,37 @@ export default {
 
 }
 </script>
+<style scoped>
+/* 웹 */
+@media screen and (min-width:769px) {
+.newscard{
+  height: 34vh;
+  /* height: 260px; */
+   width: 22.7vw;
+  /* width: 310px; */
+}
+.newsimg{
+  width: 22.7vw;
+  height: 21vh;
+
+  width: 100% !important;
+  height: 100% !important;
+
+}
+}
+/* 모바일 */
+@media screen and (max-width:768px) {
+
+.newscard{
+  height: 39vh;
+  width: 62vw;
+   /* height: 260px; */
+  /* width: 300px; */
+}
+.newsimg{
+  height: 24vh;
+  width: 62vw;
+}
+}
+</style>
+
