@@ -113,12 +113,12 @@
                                 ></v-checkbox>
                             </v-form>
                             </validation-observer>
-                            <v-col >
+                            <v-col class="d-block">
                                 <a href="/auth/kakao" alt="kakao login">
-                                    <img src="../assets/kakao_login_medium_wide.png" alt="kakao" width="100%">
+                                    <img class="kakao" src="../assets/kakao_login_medium_wide.png" alt="kakao" width="100%">
                                 </a>
                                 <a href="/auth/naver" alt="naver login">
-                                    <img src="../assets/naver_login.png" alt="naver" width="100%">
+                                    <img class="naver" src="../assets/naver_login.png" alt="naver" width="100%">
                                 </a>
                             </v-col>
                             </v-card-text>
@@ -443,10 +443,10 @@
                             </validation-observer>
                             <v-col >
                                 <a href="/auth/kakao" alt="kakao login">
-                                    <img src="../assets/kakao_login_medium_wide.png" alt="kakao" width="100%">
+                                    <img class="kakao" src="../assets/kakao_login_medium_wide.png" alt="kakao" width="100%">
                                 </a>
                                 <a href="/auth/naver" alt="naver login">
-                                    <img src="../assets/naver_login.png" alt="naver" width="100%">
+                                    <img class="naver" src="../assets/naver_login.png" alt="naver" width="100%">
                                 </a>
                             </v-col>
                             </v-card-text>
@@ -940,4 +940,14 @@ a {
         display:none;
     }
 }
+/*
+.naver{
+  height: 50%;
+  width: 50%;
+  border-radius: 5%;
+} */
+/* .kakao{
+   height: 50%;
+  width: 50%;
+} */
 </style>

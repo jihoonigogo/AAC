@@ -48,9 +48,9 @@
     </v-content>
 
     <!-- 통계 -->
-    <v-row justify="" class="mb-0 pa-8 sta">
+    <v-row justify="" class="mb-2 pa-8 sta">
       <v-col sm="12" md="4">
-        <v-card dark style="background:#202936" height="70vh">
+        <v-card dark style="background:#202936" height="">
           <v-list style="background:#202936">
             <v-subheader>POPULAR STREAMING MOVIES</v-subheader>
             <v-subheader><small>source of Rotten tomatoes</small></v-subheader>
@@ -321,7 +321,7 @@ export default {
   /* background-color: rgb(240, 236, 236); */
   /* border: solid 1px white; */
   /* margin-bottom: 10px; */
-  padding: 0px;
+  padding: -10px;
   margin: 0px;
   /* top: -10%; */
 }
@@ -332,7 +332,7 @@ export default {
     transform-style: preserve-3d;
     perspective: 700px;
     animation: spin 3s infinite linear;
-    width: 40vw;
+    /* width: 90vw; */
 }
 @keyframes spin {
    from{
@@ -361,18 +361,17 @@ export default {
 }
 /* 박스오피스 랭킹 */
 .cards h1{
-
-    font-size: 10em;
+    font-size: 11em;
     font-family: 'Babas Neue' !important;
     margin:0px;
     /* width: 5vw;
     height: 10vh; */
-    height: 40vh;
+    /* height: 40vh; */
     width: 25vw;
     transform: translateZ(1px);
     position: relative;
     -webkit-text-stroke: grey 3px;
-     right: -5%;
+    right: 3%;
     color:black;
 }
 }

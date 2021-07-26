@@ -80,6 +80,9 @@ export default {
 .main{
   background-color: #000C1D;
   z-index: 100;
+
+  width:100%;
+  overflow-x:hidden;
 }
 .main.Home {
    background-color: #000C1D;
@@ -96,15 +99,21 @@ export default {
   /* margin-top: 15%; */
   background-color: #000C1D;
   z-index: 100;
+  width:100%;
+  overflow-x:hidden;
 }
 .mainView2{
   margin-top: 10%;
   background-color: #000C1D;
   z-index: 100;
+  width:100%;
+  overflow-x:hidden;
 }
 .main{
   background-color: #000C1D;
   z-index: 100;
+  /* width:100%;
+  overflow-x:hidden; */
 }
 .main.Home {
    background-color: #000C1D;

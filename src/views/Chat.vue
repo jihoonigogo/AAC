@@ -1,144 +1,133 @@
 <template>
-  <v-container fluid>
+  <v-container fluid pa-5 grid-list-md>
     <v-row>
-      <v-col cols="11" class="mx-auto">
-        <v-card class="" style="padding:0; margin:0; border-radius:7%;">
+      <v-col cols="12">
+        <v-card style="border-radius:15px;">
           <v-img
             class="white--text"
             height="15vh"
-            src="https://cdn.pixabay.com/photo/2016/05/11/13/20/keyboard-1385706_960_720.jpg"
+            src="https://cdn.pixabay.com/photo/2017/11/06/08/42/personal-2923048__340.jpg"
             style="border-radius:10px; margin-top:2%;"
           >
-            <v-card-title>채팅방</v-card-title>
+            <v-card-title>{{$t('chat.chatRoom')}}</v-card-title>
           </v-img>
         </v-card>
       </v-col>
     </v-row>
     <v-row style="text-align:center; margin-top:5vh;">
-      <v-col col="10" offset="1" >
+      <v-col class="col-sm-12 col-md-11 offset-md-1" >
         <!-- 채팅방이름 ,참여인원수변수 , 클릭이벤트 -->
         <div class="chatroomdiv">
-          <h1 class="white--text">영화</h1>
-        <v-card class="chatroom">
+          <h1 class="white--text">{{$t('chat.movie')}}</h1>
+        <v-card class="chatroom ">
           <v-img
-            class="white--text"
+            class="img1"
             height="38vh"
             width="40vw"
             src="../assets/chatimg1.jpg"
-            style="border-top-left-radius:5%; border-top-right-radius:5%;"
+            style="border-top-left-radius:20px; border-top-right-radius:20px;"
           >
           </v-img>
             <div class="d-flex">
               <v-icon dark large class="icon">mdi-account-circle</v-icon>
-              <h4>123{{chat1cnt}}</h4>
+              <h4>{{chat1cnt}}</h4>
               <button type="button" @click="chat1">
-                입장하기
+                {{$t('chat.join')}}
               </button>
             </div>
         </v-card>
         </div>
-
         <div class="chatroomdiv">
-          <h1 class="white--text">드라마</h1>
+          <h1 class="white--text">{{$t('chat.drama')}}</h1>
         <v-card class="chatroom" >
           <v-img
-            class="white--text"
+            class="img1"
             height="38vh"
             width="40vw"
             src="../assets/chatimg2.jpg"
-            style="border-top-left-radius:5%; border-top-right-radius:5%;"
+            style="border-top-left-radius:20px; border-top-right-radius:20px;"
           >
           </v-img>
             <div class="d-flex">
               <v-icon dark large class="icon">mdi-account-circle</v-icon>
-              <h4>123{{chat1cnt}}</h4>
+              <h4>{{chat2cnt}}</h4>
               <button type="button" @click="chat2">
-                입장하기
+                {{$t('chat.join')}}
               </button>
             </div>
         </v-card>
         </div>
-
         <div class="chatroomdiv">
-          <h1 class="white--text">TV프로그램</h1>
+          <h1 class="white--text">{{$t('chat.tv')}}</h1>
         <v-card class="chatroom" >
           <v-img
-            class="white--text"
+            class="img1"
             height="38vh"
             width="40vw"
             src="../assets/chatimg3.jpg"
-            style="border-top-left-radius:5%; border-top-right-radius:5%;"
+            style="border-top-left-radius:20px; border-top-right-radius:20px;"
           >
           </v-img>
             <div class="d-flex">
               <v-icon dark large class="icon">mdi-account-circle</v-icon>
-              <h4>123{{chat1cnt}}</h4>
+              <h4>{{chat3cnt}}</h4>
               <button type="button" @click="chat3">
-                입장하기
+                {{$t('chat.join')}}
               </button>
             </div>
         </v-card>
         </div>
-
         <div class="chatroomdiv">
-          <h1 class="white--text">애니</h1>
+          <h1 class="white--text">{{$t('chat.ani')}}</h1>
         <v-card class="chatroom" >
           <v-img
-            class="white--text"
+            class="img1"
             height="38vh"
             width="40vw"
             src="https://t1.daumcdn.net/cfile/tistory/9917503E5AB207E12E"
-            style="border-top-left-radius:5%; border-top-right-radius:5%;"
+            style="border-top-left-radius:20px; border-top-right-radius:20px;"
           >
           </v-img>
             <div class="d-flex">
               <v-icon dark large class="icon">mdi-account-circle</v-icon>
-              <h4>123{{chat1cnt}}</h4>
+              <h4>{{chat4cnt}}</h4>
               <button type="button" @click="chat4">
-                입장하기
+                {{$t('chat.join')}}
               </button>
             </div>
         </v-card>
         </div>
       </v-col>
     </v-row>
-
-
     <!-- 채팅방 다이얼로그 -->
-      <v-dialog v-model="dialog" persistent width="40vw">
-      <v-card dark >
+      <v-dialog v-model="dialog" persistent width="500">
+      <v-card dark>
         <v-card-title class="text-h5 lighten-2">
           {{flagName}}
         </v-card-title>
-        <v-divider class="mb-5"/>
         <v-card-text>
           <!-- <label>내용</label> -->
           <md-field>
-          <md-textarea class="ta" v-model="textarea" disabled v-auto-scroll-bottom rows="25vh"  row-height="80"></md-textarea>
+          <md-textarea class="ta" v-model="textarea" disabled v-auto-scroll-bottom rows="10" row-height="50"></md-textarea>
           </md-field>
           <!-- <label>입력</label> -->
           <v-text-field
-              label="내용 입력 후 Enter"
+              :label="$t('chat.sendMessage')"
               v-model="message"
               @keyup.enter="sendMessage()"
               />
         </v-card-text>
-
         <v-divider></v-divider>
-
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="white" text @click="exitRoom">
-            나가기
+            {{$t('chat.goOut')}}
           </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
   </v-container>
-
 </template>
-
-
 <script>
 import axios from 'axios'
 export default {
@@ -216,11 +205,21 @@ export default {
       flagName: ''
     }
   },
+  mounted(){
+  let lang = localStorage.getItem('language')
+            if (lang == "한국어"){
+                this.$i18n.locale="한국어"
+            } else if (lang == "English"){
+                this.$i18n.locale="English"
+            } else {
+                this.$i18n.locale="日本語"
+            }
+},
   methods: {
     chat1 () {
       this.dialog = true
       this.flag = 'chat1';
-      this.flagName = '영화';
+      this.flagName = 'Movie';
       this.roomName = 'chat1';
       this.$socket.emit('req_join_room', {
         roomName: this.roomName,
@@ -230,7 +229,7 @@ export default {
     chat2 () {
       this.dialog = true
       this.flag = 'chat2'
-      this.flagName = '드라마';
+      this.flagName = 'Drama';
       this.roomName = 'chat2';
       this.$socket.emit('req_join_room', {
         roomName: this.roomName,
@@ -240,7 +239,7 @@ export default {
     chat3 () {
       this.dialog = true
       this.flag = 'chat3'
-      this.flagName = 'TV프로그램';
+      this.flagName = 'TV Program';
       this.roomName = 'chat3';
       this.$socket.emit('req_join_room', {
         roomName: this.roomName,
@@ -250,7 +249,7 @@ export default {
     chat4 () {
       this.dialog = true
       this.flag = 'chat4'
-      this.flagName = '애니';
+      this.flagName = 'Animation';
       this.roomName = 'chat4';
       this.$socket.emit('req_join_room', {
         roomName: this.roomName,
@@ -300,15 +299,16 @@ export default {
   }
 }
 </script>
-
 <style scoped>
+/* @media screen and (min-width:769x) { */
+
 .chatroom{
   display: inline-block;
   position: relative;
   margin-right: 130px;
   margin-top: 10px;
   max-height: 45vh;
-  width: 37vw;
+  width: 35vw;
   /* right: -50%; */
   padding: 0px;
   border-radius: 2.2vh;
@@ -338,8 +338,6 @@ export default {
 .ta {
   width: 100%;
   color: whitesmoke;
-  /* color: red; */
-
 }
 .container{
   background-color:#000C1D;
@@ -358,5 +356,21 @@ export default {
   display: flex;
   justify-content:flex-end;
   margin-right: 1vw;
+}
+
+@media screen and (max-width:768px) {
+  .chatroom {
+    /* min-width: 75%; */
+    width:82vw !important;
+    margin:0;
+  }
+  .img1{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  .chatroom h4{
+    top:0.2vh;
+  }
 }
 </style>

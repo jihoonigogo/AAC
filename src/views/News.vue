@@ -149,7 +149,7 @@ export default {
 }
 .newsimg{
   height: 24vh;
-  width: 62vw;
+  /* width: 62vw; */
 }
 }
 </style>
